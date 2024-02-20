@@ -1,14 +1,33 @@
 <p style="color: green"><%= notice %></p>
-
+<% content_for :head do %>
+  <%= stylesheet_link_tag 'index-di' %>
+<% end %>
+<nav>
+  <div class="logo">Gundeep Singh</div>
+  <div class="menu">
+<%= link_to "Home", new_article_path, class: "menu-items"%>
+<%= link_to "SignUp", new_article_path, class: "menu-items"%>
+<%= link_to "Login", new_article_path, class: "menu-items"%>
+  </div>
+</nav>
+<br>
 <h1>Articles</h1>
-
+<br><br>
 <div id="articles">
   <% @articles.each do |article| %>
-    <%= render article %>
+<div class="blog-container">
+  <h3><%= render article %></h3>
+  
     <p>
-      <%= link_to "Show this article", article %>
+      <%= link_to "Show this article", article, class: "jatt" %>
     </p>
+</div>
+    
   <% end %>
 </div>
+<br>
+<br>
+<div class="container">
+  <%= link_to "New article", new_article_path, class: "create" %>
+</div>
 
-<%= link_to "New article", new_article_path %>
